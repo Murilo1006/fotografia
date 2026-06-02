@@ -246,32 +246,104 @@ function switchTab(tab,btn){
 }
 
 // ── PAYMENT ──
+let descontoAplicado = 0;
+
 function selectPay(btn,type){
   document.querySelectorAll('.pm-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.card-fields').forEach(f=>f.classList.remove('show'));
   document.getElementById('pay-'+type).classList.add('show');
 }
+
+function aplicarCupom(){
+  const campo=document.getElementById('f-cupom');
+  const msg=document.getElementById('cupom-msg');
+
+  if(!campo) return;
+
+  if(campo.value.trim()==='1234'){
+    descontoAplicado=10;
+
+    if(msg){
+      msg.style.display='block';
+      msg.style.color='#7A9666';
+      msg.innerHTML='✓ Cupom aplicado com sucesso! 10% de desconto';
+    }
+  }else{
+    descontoAplicado=0;
+
+    if(msg){
+      msg.style.display='block';
+      msg.style.color='#C05A3A';
+      msg.innerHTML='✗ Cupom inválido';
+    }
+  }
+
+  updateSinal();
+}
+
 function updateSinal(){
-  const prices={'Essencial (R$1.800)':1800,'Premium (R$4.500)':4500,'Luxo (R$8.000)':8000};
-  const sel=document.getElementById('f-pacote');if(!sel)return;
-  const val=prices[sel.value];
-  if(val){document.getElementById('sinVal').textContent=`R$${Math.round(val*.3).toLocaleString('pt-BR')}`;document.getElementById('restVal').textContent=`R$${(val-Math.round(val*.3)).toLocaleString('pt-BR')}`;}
-  else{document.getElementById('sinVal').textContent='—';document.getElementById('restVal').textContent='—';}
+
+  const prices={
+    'Essencial (R$1.800)':1800,
+    'Premium (R$4.500)':4500,
+    'Luxo (R$8.000)':8000
+  };
+
+  const sel=document.getElementById('f-pacote');
+  if(!sel) return;
+
+  const valorOriginal=prices[sel.value];
+
+  if(!valorOriginal){
+    document.getElementById('sinVal').textContent='—';
+    document.getElementById('restVal').textContent='—';
+    return;
+  }
+
+  const desconto=valorOriginal*(descontoAplicado/100);
+  const valorFinal=valorOriginal-desconto;
+
+  const sinal=Math.round(valorFinal*0.3);
+  const restante=valorFinal-sinal;
+
+  document.getElementById('sinVal').textContent=
+    `R$ ${sinal.toLocaleString('pt-BR')}`;
+
+  document.getElementById('restVal').textContent=
+    `R$ ${restante.toLocaleString('pt-BR')}`;
+
+  const total=document.getElementById('totalVal');
+  if(total){
+    total.textContent=
+      `R$ ${valorFinal.toLocaleString('pt-BR')}`;
+  }
+
+  const descontoVal=document.getElementById('descontoVal');
+  const descontoRow=document.getElementById('desconto-row');
+
+  if(descontoVal){
+    descontoVal.textContent=
+      `- R$ ${desconto.toLocaleString('pt-BR')}`;
+  }
+
+  if(descontoRow){
+    descontoRow.style.display=
+      descontoAplicado > 0 ? 'flex' : 'none';
+  }
 }
-document.addEventListener('change',e=>{if(e.target.id==='f-pacote')updateSinal();});
-function formatCard(input){let v=input.value.replace(/\D/g,'').substring(0,16);input.value=v.replace(/(.{4})/g,'$1 ').trim();}
-function finalizarAgendamento(){
-  const nome=document.getElementById('f-nome')?.value.trim();
-  const email=document.getElementById('f-email')?.value.trim();
-  if(!nome||!email){showToast('⚠ Preencha nome e e-mail na aba Dados');return;}
-  document.getElementById('formArea').style.display='none';
-  document.getElementById('successMsg').style.display='block';
+
+document.addEventListener('change',e=>{
+  if(e.target.id==='f-pacote'){
+    updateSinal();
+  }
+});
+
+function formatCard(input){
+  let v=input.value.replace(/\D/g,'').substring(0,16);
+  input.value=v.replace(/(.{4})/g,'$1 ').trim();
 }
-function goToAgendar(pacote){
-  goTo('agendar');
-  setTimeout(()=>{const s=document.getElementById('f-pacote');if(s){s.value=pacote;updateSinal();}switchTab('calendario',document.querySelectorAll('.btab')[0]);},100);
-}
+
 
 // ── GALERIA LOGIN ──
 function acessarGal(){
