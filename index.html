@@ -3,105 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rafael Lima Fotografia</title>
+<title>Rafael Lima — Fotografia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ════════════════════ LOGIN PAGE ════════════════════ -->
+<!-- CURSORS -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ════════════ LOGIN ════════════ -->
 <div id="loginPage">
-  <div class="login-box">
-    <div class="login-logo">Rafael Lima</div>
-    <div class="login-sub">Fotografia · Casamentos & Eventos</div>
-    <label class="login-label">Senha de acesso</label>
-    <input type="password" class="login-input" id="loginInput" placeholder="••••" maxlength="20"
-      onkeypress="if(event.key==='Enter') doLogin()">
-    <div class="login-err" id="loginErr">Senha incorreta. Tente novamente.</div>
-    <button class="login-btn" onclick="doLogin()">Entrar</button>
-    <p class="login-hint">Acesso exclusivo para clientes e parceiros</p>
+  <div class="lp-inner">
+    <div class="lp-left">
+      <div class="lp-left-top">
+        <div class="lp-label">Fotógrafo Profissional · São Paulo</div>
+        <div class="lp-title">Rafael<br>Lima<br><em>Fotografia</em></div>
+        <div class="lp-sub">Casamentos, eventos e ensaios fotográficos. Cada imagem, uma história única.</div>
+      </div>
+      <div class="lp-bottom">© 2024 Rafael Lima Fotografia</div>
+    </div>
+    <div class="lp-right">
+      <div>
+        <div class="lp-field-label">Senha de acesso</div>
+        <input type="password" class="lp-input" id="loginInput" placeholder="••••••" maxlength="20">
+      </div>
+      <div class="lp-err" id="loginErr">Senha incorreta. Tente novamente.</div>
+      <button class="lp-btn" onclick="doLogin()">Entrar</button>
+      <div class="lp-hint">Acesso exclusivo para clientes e parceiros</div>
+    </div>
   </div>
 </div>
 
-<!-- ════════════════════ SITE WRAPPER ════════════════════ -->
+<!-- ════════════ SITE ════════════ -->
 <div id="siteWrapper">
 
 <!-- NAV -->
 <nav id="navbar">
-  <span class="nav-logo" onclick="goTo('hero')">Rafael Lima</span>
+  <span class="nav-logo" onclick="goTo('sobre')">Rafael<span>.</span>Lima</span>
   <ul class="nav-links">
     <li><a onclick="goTo('sobre')" id="nl-sobre">Sobre</a></li>
     <li><a onclick="goTo('portfolio')" id="nl-portfolio">Portfólio</a></li>
     <li><a onclick="goTo('pacotes')" id="nl-pacotes">Pacotes</a></li>
     <li><a onclick="goTo('depoimentos')" id="nl-depoimentos">Histórias</a></li>
-    <li><a onclick="goTo('galeria')" id="nl-galeria">Área do Cliente</a></li>
+    <li><a onclick="goTo('galeria')" id="nl-galeria">Cliente</a></li>
   </ul>
-  <a class="nav-cta" onclick="goTo('agendar')">Agendar Sessão</a>
+  <div class="nav-right">
+    <button class="nav-btn" onclick="goTo('agendar')">Agendar Sessão</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- ════ PAGE: HERO ════ -->
-<div class="page active" id="pageHero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Fotografia de Casamentos & Eventos</p>
-    <h1 class="hero-title">Momentos que<br><em>duram para sempre</em></h1>
-    <p class="hero-sub">Cada história de amor merece ser contada com beleza, emoção e autenticidade.</p>
-    <div class="hero-actions">
-      <button class="btn-gold" onclick="goTo('portfolio')">Ver Portfólio</button>
-      <button class="btn-outline-light" onclick="goTo('pacotes')">Conhecer Pacotes</button>
-    </div>
-  </div>
-  <div class="hero-scroll"><div class="scroll-line"></div><span>Role</span></div>
-
-  <!-- Social footer strip dentro do hero -->
-  <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(28,21,16,.55);backdrop-filter:blur(6px);padding:1rem 4rem;display:flex;justify-content:center;gap:2rem;">
-    <a href="#" onclick="openSocial('instagram')" style="display:flex;align-items:center;gap:.5rem;color:rgba(253,250,247,.65);text-decoration:none;font-size:.75rem;letter-spacing:.12em;transition:color .3s;" onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='rgba(253,250,247,.65)'">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(253,250,247,.65)"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="none" stroke="#1C1510" stroke-width="1.5" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#1C1510" stroke-width="1.5"/></svg>
-      @rafaellimafoto
-    </a>
-    <a href="#" onclick="openSocial('facebook')" style="display:flex;align-items:center;gap:.5rem;color:rgba(253,250,247,.65);text-decoration:none;font-size:.75rem;letter-spacing:.12em;transition:color .3s;" onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='rgba(253,250,247,.65)'">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(253,250,247,.65)"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-      Rafael Lima Fotografia
-    </a>
-    <a href="#" onclick="openSocial('whatsapp')" style="display:flex;align-items:center;gap:.5rem;color:rgba(253,250,247,.65);text-decoration:none;font-size:.75rem;letter-spacing:.12em;transition:color .3s;" onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='rgba(253,250,247,.65)'">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(253,250,247,.65)"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      WhatsApp
-    </a>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-logo">Rafael<span>.</span>Lima</div>
+    <ul class="mobile-nav-links">
+      <li><a onclick="mobileGoTo('sobre')">Sobre</a></li>
+      <li><a onclick="mobileGoTo('portfolio')">Portfólio</a></li>
+      <li><a onclick="mobileGoTo('pacotes')">Pacotes</a></li>
+      <li><a onclick="mobileGoTo('depoimentos')">Histórias</a></li>
+      <li><a onclick="mobileGoTo('galeria')">Cliente</a></li>
+    </ul>
+    <button class="mobile-menu-cta" onclick="mobileGoTo('agendar')">Agendar Sessão</button>
   </div>
 </div>
 
-<!-- ════ PAGE: SOBRE ════ -->
-<div class="page" id="pageSobre">
-  <div class="sobre-grid">
-    <div class="sobre-img-wrap">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Rafael Lima">
+<!-- ════ HERO ════ -->
+<div class="page active" id="pageHero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Fotografia de Casamentos & Eventos · Est. 2016</div>
+    <div class="hero-main">
+      <div class="hero-title">Momentos que<br><em>nunca</em> somem</div>
+      <div class="hero-sub">Fotógrafo especializado em eternizar os instantes mais significativos da sua vida, com olhar artístico e técnica refinada.</div>
+      <div class="hero-actions">
+        <button class="btn-moss" onclick="goTo('portfolio')">Ver Portfólio</button>
+        <button class="btn-outline" onclick="goTo('pacotes')">Conhecer Pacotes</button>
+      </div>
     </div>
-    <div class="sobre-text">
-      <p class="sec-label">Sobre mim</p>
-      <h2 class="sec-title">Olá, sou <em>Rafael Lima</em></h2>
-      <p>Fotógrafo profissional com mais de 8 anos dedicados a capturar os momentos mais especiais da vida das pessoas. Especializado em casamentos, eventos sociais e ensaios fotográficos, trago para cada trabalho uma visão artística única aliada a técnica refinada.</p>
-      <p>Acredito que cada casal tem uma história singular, e meu trabalho é contar essa história através de imagens que transmitam emoção, beleza e verdade. Mais do que fotografar, meu compromisso é criar memórias que vão emocionar gerações.</p>
-      <div class="sobre-stats">
-        <div><div class="stat-num">8+</div><div class="stat-lbl">Anos de Experiência</div></div>
-        <div><div class="stat-num">350+</div><div class="stat-lbl">Casamentos Realizados</div></div>
-        <div><div class="stat-num">98%</div><div class="stat-lbl">Clientes Satisfeitos</div></div>
+    <div class="hero-bottom">
+      <div class="hero-socials">
+        <a class="hero-social-link" onclick="openSocial('instagram')">Instagram</a>
+        <a class="hero-social-link" onclick="openSocial('facebook')">Facebook</a>
+        <a class="hero-social-link" onclick="openSocial('whatsapp')">WhatsApp</a>
+      </div>
+      <div class="hero-scroll-hint">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
       </div>
     </div>
   </div>
-  <div style="text-align:center;padding:3rem 0;background:var(--warm);">
-    <button class="btn-gold" onclick="goTo('portfolio')">Ver Portfólio →</button>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85" alt="Casamento">
+    <div class="hero-counter">
+      <div class="hero-counter-num">350+</div>
+      <div class="hero-counter-lbl">Casamentos Realizados</div>
+    </div>
+    <div class="hero-vert">Rafael Lima Fotografia</div>
   </div>
-  <!-- social + footer -->
-  <div id="socialStripSobre"></div>
-  <div id="footerSobre"></div>
 </div>
 
-<!-- ════ PAGE: PORTFOLIO ════ -->
+<!-- ════ SOBRE ════ -->
+<div class="page" id="pageSobre">
+  <div class="sobre-layout">
+    <div class="sobre-left">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=800&q=85" alt="Rafael Lima">
+      <div class="sobre-left-badge">
+        <div class="sobre-left-badge-num">8+</div>
+        <div class="sobre-left-badge-lbl">Anos de experiência</div>
+      </div>
+    </div>
+    <div class="sobre-right">
+      <div class="pg-label">Sobre mim</div>
+      <h2 class="pg-title">Olá, sou<br><em>Rafael Lima</em></h2>
+      <div class="sobre-divider"></div>
+      <p class="sobre-body">Fotógrafo profissional com mais de 8 anos dedicados a capturar os momentos mais especiais da vida das pessoas. Especializado em casamentos, eventos sociais e ensaios fotográficos.</p>
+      <p class="sobre-body">Acredito que cada casal tem uma história singular, e meu trabalho é contar essa história através de imagens que transmitam emoção, beleza e verdade.</p>
+      <div class="sobre-stats">
+        <div><div class="stat-num">350+</div><div class="stat-lbl">Casamentos</div></div>
+        <div><div class="stat-num">98%</div><div class="stat-lbl">Satisfação</div></div>
+        <div><div class="stat-num">12</div><div class="stat-lbl">Prêmios</div></div>
+      </div>
+      <button class="btn-moss" onclick="goTo('portfolio')">Ver Portfólio →</button>
+    </div>
+  </div>
+  <div class="social-strip">
+    <span class="social-strip-lbl">Siga nas redes</span>
+    <div class="social-links">
+      <a onclick="openSocial('instagram')"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>@rafaellimafoto</a>
+      <a onclick="openSocial('facebook')"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Rafael Lima Fotografia</a>
+      <a onclick="openSocial('whatsapp')"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+  <footer>
+    <div><span class="footer-logo">Rafael<span>.</span>Lima</span><p class="footer-desc">Fotógrafo profissional especializado em casamentos, eventos sociais e ensaios. Cada imagem conta uma história única.</p></div>
+    <div class="footer-col"><h4>Navegação</h4><ul>
+      <li><a onclick="goTo('sobre')">Sobre</a></li><li><a onclick="goTo('portfolio')">Portfólio</a></li>
+      <li><a onclick="goTo('pacotes')">Pacotes</a></li><li><a onclick="goTo('depoimentos')">Histórias</a></li>
+      <li><a onclick="goTo('galeria')">Área do Cliente</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Serviços</h4><ul>
+      <li><a onclick="goTo('pacotes')">Casamentos</a></li><li><a onclick="goTo('pacotes')">Eventos</a></li>
+      <li><a onclick="goTo('pacotes')">Ensaios</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contato</h4><ul>
+      <li><a>(11) 99999-0000</a></li>
+      <li><a>contato@rafaellimafoto.com.br</a></li>
+      <li><a>São Paulo, SP</a></li>
+    </ul></div>
+  </footer>
+  <div class="footer-bottom"><span>© 2024 Rafael Lima Fotografia</span><span>Feito com ♥</span></div>
+</div>
+
+<!-- ════ PORTFOLIO ════ -->
 <div class="page" id="pagePortfolio">
   <div class="port-header">
     <div>
-      <p class="sec-label">Meu Trabalho</p>
-      <h2 class="sec-title">Portfólio</h2>
+      <div class="pg-label">Meu Trabalho</div>
+      <h2 class="pg-title" style="font-size:2.8rem;">Portfólio</h2>
     </div>
     <div class="port-filters">
       <button class="filter-btn active" onclick="filterPort('todos',this)">Todos</button>
@@ -111,85 +173,105 @@
     </div>
   </div>
   <div class="port-grid" id="portGrid">
-
-    <div class="port-item" data-cat="casamentos" onclick="openModal(this)">
+    <div class="port-item" data-cat="casamentos" onclick="openGallery('ana-pedro')">
       <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=900&q=80" alt="">
       <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
       </div>
-      <div class="port-overlay"><div><div class="port-cat">Casamentos</div><div class="port-name">Ana & Pedro</div></div></div>
+      <div class="port-overlay"><div><div class="port-item-cat">Casamentos</div><div class="port-item-name">Ana & Pedro</div></div></div>
     </div>
-
-    <div class="port-item" data-cat="ensaios" onclick="openModal(this)">
-      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" alt="">
-      <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
-      </div>
-      <div class="port-overlay"><div><div class="port-cat">Ensaios</div><div class="port-name">Ensaio de Noivado</div></div></div>
-    </div>
-
-    <div class="port-item" data-cat="casamentos" onclick="openModal(this)">
-      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=700&q=80" alt="">
-      <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
-      </div>
-      <div class="port-overlay"><div><div class="port-cat">Casamentos</div><div class="port-name">Julia & Marcos</div></div></div>
-    </div>
-
-    <div class="port-item" data-cat="eventos" onclick="openModal(this)">
+    <div class="port-item" data-cat="eventos" onclick="openGallery('gala')">
       <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="">
       <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
       </div>
-      <div class="port-overlay"><div><div class="port-cat">Eventos</div><div class="port-name">Gala Corporativa</div></div></div>
+      <div class="port-overlay"><div><div class="port-item-cat">Eventos</div><div class="port-item-name">Gala Corporativa</div></div></div>
     </div>
-
-    <div class="port-item" data-cat="ensaios" onclick="openModal(this)">
+    <div class="port-item" data-cat="ensaios" onclick="openGallery('noivado')">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" alt="">
+      <div class="port-share">
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+      <div class="port-overlay"><div><div class="port-item-cat">Ensaios</div><div class="port-item-name">Ensaio de Noivado</div></div></div>
+    </div>
+    <div class="port-item" data-cat="casamentos" onclick="openGallery('julia-marcos')">
+      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=700&q=80" alt="">
+      <div class="port-share">
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+      <div class="port-overlay"><div><div class="port-item-cat">Casamentos</div><div class="port-item-name">Julia & Marcos</div></div></div>
+    </div>
+    <div class="port-item" data-cat="eventos" onclick="openGallery('conf-empresa')">
+      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="">
+      <div class="port-share">
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+      <div class="port-overlay"><div><div class="port-item-cat">Eventos</div><div class="port-item-name">Conferência Empresarial</div></div></div>
+    </div>
+    <div class="port-item" data-cat="ensaios" onclick="openGallery('familia')">
       <img src="https://images.unsplash.com/photo-1529636444744-adffc9135a5e?w=600&q=80" alt="">
       <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
       </div>
-      <div class="port-overlay"><div><div class="port-cat">Ensaios</div><div class="port-name">Família Rodrigues</div></div></div>
+      <div class="port-overlay"><div><div class="port-item-cat">Ensaios</div><div class="port-item-name">Família Rodrigues</div></div></div>
     </div>
-
-    <div class="port-item" data-cat="casamentos" onclick="openModal(this)">
+    <div class="port-item" data-cat="casamentos" onclick="openGallery('cerimonia')">
       <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="">
       <div class="port-share">
-        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
       </div>
-      <div class="port-overlay"><div><div class="port-cat">Casamentos</div><div class="port-name">Cerimônia ao Ar Livre</div></div></div>
+      <div class="port-overlay"><div><div class="port-item-cat">Casamentos</div><div class="port-item-name">Cerimônia ao Ar Livre</div></div></div>
     </div>
-
+    <div class="port-item" data-cat="eventos" onclick="openGallery('festa-social')">
+      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80" alt="">
+      <div class="port-share">
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+      <div class="port-overlay"><div><div class="port-item-cat">Eventos</div><div class="port-item-name">Festa Social</div></div></div>
+    </div>
+    <div class="port-item" data-cat="ensaios" onclick="openGallery('casal-urbano')">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="">
+      <div class="port-share">
+        <a class="share-icon si-ig" onclick="event.stopPropagation();sharePhoto('instagram',this)"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a class="share-icon si-fb" onclick="event.stopPropagation();sharePhoto('facebook',this)"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="share-icon si-wa" onclick="event.stopPropagation();sharePhoto('whatsapp',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        <a class="share-icon si-tw" onclick="event.stopPropagation();sharePhoto('twitter',this)"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+      <div class="port-overlay"><div><div class="port-item-cat">Ensaios</div><div class="port-item-name">Ensaio Urbano</div></div></div>
+    </div>
   </div>
-  <div class="port-cta"><button class="btn-dark" onclick="goTo('agendar')">Agendar uma Sessão</button></div>
+  <div class="port-cta"><button class="btn-outline" onclick="goTo('agendar')">Agendar uma Sessão</button></div>
 </div>
 
-<!-- ════ PAGE: PACOTES ════ -->
+<!-- ════ PACOTES ════ -->
 <div class="page" id="pagePacotes">
-  <div class="pac-intro">
-    <div>
-      <p class="sec-label">Investimento</p>
-      <h2 class="sec-title">Pacotes de <em>Serviços</em></h2>
-    </div>
-    <p>Cada pacote foi cuidadosamente elaborado para oferecer a melhor experiência fotográfica. Todos incluem edição profissional e entrega digital em alta resolução.</p>
+  <div class="pac-header">
+    <div><div class="pg-label">Investimento</div><h2 class="pg-title" style="color:var(--ink);">Pacotes de <em>Serviços</em></h2></div>
+    <p>Cada pacote elaborado para oferecer a melhor experiência fotográfica. Todos incluem edição profissional e entrega digital em alta resolução.</p>
   </div>
   <div class="pac-grid">
     <div class="pac-card">
@@ -201,20 +283,20 @@
         <li>Até 4 horas de cobertura</li><li>150 fotos editadas</li>
         <li>Galeria online privada</li><li>Entrega em 15 dias</li><li>1 locação</li>
       </ul>
-      <button class="pac-btn" onclick="goToAgendar('Essencial (a partir de R$1.800)')">Solicitar & Pagar</button>
+      <button class="pac-btn" onclick="goToAgendar('Essencial (R$1.800)')">Solicitar & Pagar</button>
     </div>
     <div class="pac-card star">
       <span class="pac-badge">Mais Escolhido</span>
-      <div class="pac-nome">Premium</div>
+      <div class="pac-nome" style="color:var(--white);">Premium</div>
       <div class="pac-desc">Perfeito para casamentos e eventos completos</div>
       <span class="pac-desde">A partir de</span>
-      <div class="pac-price">R$4.500</div>
+      <div class="pac-price" style="color:var(--white);">R$4.500</div>
       <ul class="pac-items">
         <li>Cobertura dia inteiro</li><li>400+ fotos editadas</li>
         <li>Álbum impresso 30×30</li><li>Galeria online privada</li>
         <li>Entrega em 30 dias</li><li>Ensaio pré-evento incluso</li>
       </ul>
-      <button class="pac-btn" onclick="goToAgendar('Premium (a partir de R$4.500)')">Solicitar & Pagar</button>
+      <button class="pac-btn" onclick="goToAgendar('Premium (R$4.500)')">Solicitar & Pagar</button>
     </div>
     <div class="pac-card">
       <div class="pac-nome">Luxo</div>
@@ -226,50 +308,41 @@
         <li>Álbum de luxo 40×40</li><li>Vídeo highlights 3min</li>
         <li>Segundo fotógrafo incluso</li><li>Ensaio pré-evento</li>
       </ul>
-      <button class="pac-btn" onclick="goToAgendar('Luxo (a partir de R$8.000)')">Solicitar & Pagar</button>
+      <button class="pac-btn" onclick="goToAgendar('Luxo (R$8.000)')">Solicitar & Pagar</button>
     </div>
   </div>
 </div>
 
-<!-- ════ PAGE: AGENDAMENTO ════ -->
+<!-- ════ AGENDAMENTO ════ -->
 <div class="page" id="pageAgendar">
-  <div class="agendar-layout">
+  <div class="agendar-grid">
     <div class="agendar-left">
-      <p class="sec-label">Vamos conversar</p>
-      <h2 class="sec-title">Agende sua <em>Sessão</em></h2>
-      <p>Entre em contato para conversarmos sobre seu evento especial. Cada projeto começa com uma conversa onde entendemos seus sonhos e planejamos juntos como torná-los realidade.</p>
+      <div><div class="pg-label">Vamos conversar</div><h2 class="pg-title">Agende sua <em>Sessão</em></h2></div>
+      <p>Entre em contato para conversarmos sobre seu evento especial. Cada projeto começa com uma conversa onde entendemos seus sonhos e planejamos juntos.</p>
       <ul class="contact-list">
         <li><div class="contact-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg></div>(11) 99999-0000</li>
         <li><div class="contact-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>contato@rafaellimafoto.com.br</li>
         <li><div class="contact-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Resposta em até 24 horas</li>
       </ul>
     </div>
-
     <div class="agendar-right">
       <div class="form-box">
         <div id="formArea">
           <div class="form-title">Agendar & Reservar</div>
-
-          <!-- Tabs -->
           <div class="booking-tabs">
-            <button class="btab active" onclick="switchTab('calendario',this)">📅 Escolher Data</button>
-            <button class="btab" onclick="switchTab('info',this)">👤 Seus Dados</button>
+            <button class="btab active" onclick="switchTab('calendario',this)">📅 Data</button>
+            <button class="btab" onclick="switchTab('info',this)">👤 Dados</button>
             <button class="btab" onclick="switchTab('pagamento',this)">💳 Pagamento</button>
           </div>
-
-          <!-- TAB 1: CALENDÁRIO -->
+          <!-- TAB 1 -->
           <div class="booking-panel active" id="tab-calendario">
-            <div class="cal-wrap">
-              <div class="cal-header">
-                <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
-                <span class="cal-month" id="calMonth"></span>
-                <button class="cal-nav" onclick="changeMonth(1)">›</button>
-              </div>
-              <div class="cal-grid" id="calGrid"></div>
+            <div class="cal-header">
+              <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+              <span class="cal-month" id="calMonth"></span>
+              <button class="cal-nav" onclick="changeMonth(1)">›</button>
             </div>
-
-            <div class="fg">
-              <label class="flabel">Horário disponível</label>
+            <div class="cal-grid" id="calGrid"></div>
+            <div class="fg"><label class="flabel">Horário</label>
               <div class="time-slots" id="timeSlots">
                 <div class="tslot" onclick="selectSlot(this)">09:00</div>
                 <div class="tslot" onclick="selectSlot(this)">10:30</div>
@@ -281,23 +354,19 @@
                 <div class="tslot" onclick="selectSlot(this)">20:00</div>
               </div>
             </div>
-
-            <div class="fg">
-              <label class="flabel">Tipo de Serviço</label>
+            <div class="fg"><label class="flabel">Tipo de Serviço</label>
               <select class="fselect" id="f-tipo">
                 <option value="">Selecione...</option>
                 <option>Casamento</option><option>Evento Corporativo</option>
-                <option>Ensaio Fotográfico</option><option>Festa / Confraternização</option><option>Outro</option>
+                <option>Ensaio Fotográfico</option><option>Festa</option><option>Outro</option>
               </select>
             </div>
-
-            <button class="btn-gold" style="width:100%;justify-content:center;" onclick="switchTab('info',document.querySelectorAll('.btab')[1])">Próximo →</button>
+            <button class="btn-moss" style="width:100%;" onclick="switchTab('info',document.querySelectorAll('.btab')[1])">Próximo →</button>
           </div>
-
-          <!-- TAB 2: INFO PESSOAL -->
+          <!-- TAB 2 -->
           <div class="booking-panel" id="tab-info">
             <div class="frow">
-              <div class="fg"><label class="flabel">Nome</label><input class="finput" id="f-nome" placeholder="Seu nome completo"></div>
+              <div class="fg"><label class="flabel">Nome</label><input class="finput" id="f-nome" placeholder="Seu nome"></div>
               <div class="fg"><label class="flabel">E-mail</label><input class="finput" id="f-email" type="email" placeholder="seu@email.com"></div>
             </div>
             <div class="frow">
@@ -311,34 +380,30 @@
               </div>
             </div>
             <div class="fg"><label class="flabel">Mensagem</label>
-              <textarea class="ftextarea" id="f-msg" placeholder="Conte um pouco sobre seu evento..."></textarea>
+              <textarea class="ftextarea" id="f-msg" placeholder="Conte sobre seu evento..."></textarea>
             </div>
-            <div style="display:flex;gap:1rem;">
-              <button class="btn-outline-light" style="color:var(--muted);border-color:var(--sand);flex:1;" onclick="switchTab('calendario',document.querySelectorAll('.btab')[0])">← Voltar</button>
-              <button class="btn-gold" style="flex:2;" onclick="switchTab('pagamento',document.querySelectorAll('.btab')[2])">Próximo →</button>
+            <div class="fg" style="margin-top:4px;">
+              <label class="flabel">Cupom de Desconto <span style="color:#333;text-transform:none;letter-spacing:0;">(opcional)</span></label>
+              <div style="display:flex;gap:0;">
+                <input class="finput" id="f-cupom" placeholder="Digite seu cupom..." style="flex:1;" oninput="this.value=this.value.toUpperCase()">
+                <button onclick="aplicarCupom()" style="background:var(--moss);border:none;color:white;padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap;font-weight:400;" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--moss)'">Aplicar</button>
+              </div>
+              <div id="cupom-msg" style="font-size:.72rem;margin-top:6px;display:none;"></div>
+            </div>
+            <div class="btn-row">
+              <button class="btn-back" onclick="switchTab('calendario',document.querySelectorAll('.btab')[0])">← Voltar</button>
+              <button class="btn-submit" onclick="switchTab('pagamento',document.querySelectorAll('.btab')[2])">Próximo →</button>
             </div>
           </div>
-
-          <!-- TAB 3: PAGAMENTO -->
+          <!-- TAB 3 -->
           <div class="booking-panel" id="tab-pagamento">
             <div class="payment-section">
               <div class="payment-title">Forma de Pagamento</div>
               <div class="payment-methods">
-                <button class="pm-btn active" onclick="selectPay(this,'cartao')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                  Cartão
-                </button>
-                <button class="pm-btn" onclick="selectPay(this,'pix')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  Pix
-                </button>
-                <button class="pm-btn" onclick="selectPay(this,'boleto')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  Boleto
-                </button>
+                <button class="pm-btn active" onclick="selectPay(this,'cartao')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Cartão</button>
+                <button class="pm-btn" onclick="selectPay(this,'pix')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Pix</button>
+                <button class="pm-btn" onclick="selectPay(this,'boleto')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleto</button>
               </div>
-
-              <!-- Cartão -->
               <div class="card-fields show" id="pay-cartao">
                 <div class="fg"><label class="flabel">Número do Cartão</label><input class="finput" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)"></div>
                 <div class="frow">
@@ -346,200 +411,116 @@
                   <div class="fg"><label class="flabel">CVV</label><input class="finput" placeholder="123" maxlength="4" type="password"></div>
                 </div>
                 <div class="fg"><label class="flabel">Nome no Cartão</label><input class="finput" placeholder="Como está no cartão"></div>
-                <div class="fg">
-                  <label class="flabel">Parcelamento</label>
-                  <select class="fselect">
-                    <option>1x sem juros</option><option>2x sem juros</option>
-                    <option>3x sem juros</option><option>6x + juros</option><option>12x + juros</option>
-                  </select>
+                <div class="fg"><label class="flabel">Parcelamento</label>
+                  <select class="fselect"><option>1x sem juros</option><option>2x sem juros</option><option>3x sem juros</option><option>6x + juros</option><option>12x + juros</option></select>
                 </div>
               </div>
-
-              <!-- Pix -->
-              <div class="card-fields" id="pay-pix" style="text-align:center;padding:1.5rem 0;">
-                <div style="font-size:.85rem;color:var(--muted);margin-bottom:1.2rem;">Chave Pix: <strong style="color:var(--dark);">contato@rafaellimafoto.com.br</strong></div>
-                <div style="width:130px;height:130px;background:var(--sand);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--muted);letter-spacing:.05em;">QR CODE</div>
-                <div style="font-size:.75rem;color:var(--muted);">Após o pagamento, envie o comprovante via WhatsApp</div>
+              <div class="card-fields" id="pay-pix">
+                <div class="pix-block">
+                  <div class="pix-key">Chave Pix: <strong>contato@rafaellimafoto.com.br</strong></div>
+                  <div class="qr-placeholder">QR CODE</div>
+                  <div class="pix-hint">Envie o comprovante via WhatsApp após o pagamento</div>
+                </div>
               </div>
-
-              <!-- Boleto -->
-              <div class="card-fields" id="pay-boleto" style="text-align:center;padding:1.5rem 0;">
-                <div style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;">O boleto será gerado após a confirmação e enviado ao seu e-mail em até 1 hora.</div>
-                <div style="font-size:.75rem;color:var(--taupe);">Prazo de pagamento: 3 dias úteis · Vencimento: na data informada</div>
-              </div>
-
-            </div>
-
-            <div style="background:var(--cream);padding:1rem;margin:.5rem 0;border:1px solid var(--sand);">
-              <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:.4rem;">
-                <span>Reserva / Sinal (30%)</span><span id="sinVal" style="font-weight:500;color:var(--dark);">—</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--taupe);">
-                <span>Restante (no dia do evento)</span><span id="restVal">—</span>
+              <div class="card-fields" id="pay-boleto">
+                <div class="boleto-block">
+                  <div class="boleto-hint">O boleto será gerado após confirmação e enviado ao seu e-mail em até 1 hora.<br><br>Prazo: 3 dias úteis</div>
+                </div>
               </div>
             </div>
-
-            <div style="display:flex;gap:1rem;">
-              <button class="btn-outline-light" style="color:var(--muted);border-color:var(--sand);flex:1;" onclick="switchTab('info',document.querySelectorAll('.btab')[1])">← Voltar</button>
-              <button class="btn-submit" style="flex:2;margin-top:0;" onclick="finalizarAgendamento()">Confirmar & Pagar</button>
+            <div class="pay-summary">
+              <div class="pay-row"><span class="pk">Valor do pacote</span><span class="pv" id="totalVal">—</span></div>
+              <div class="pay-row" id="desconto-row" style="display:none;"><span class="pk" style="color:var(--sage);">🎉 Desconto aplicado</span><span class="pv" style="color:var(--sage);" id="descontoVal">—</span></div>
+              <div class="pay-row"><span class="pk">Reserva / Sinal 30%</span><span class="pv" id="sinVal">—</span></div>
+              <div class="pay-row sub"><span class="pk">Restante no dia do evento</span><span class="pv" id="restVal">—</span></div>
+            </div>
+            <div class="btn-row">
+              <button class="btn-back" onclick="switchTab('info',document.querySelectorAll('.btab')[1])">← Voltar</button>
+              <button class="btn-submit" onclick="finalizarAgendamento()">Confirmar & Pagar</button>
             </div>
           </div>
         </div>
-
-        <!-- SUCCESS -->
         <div class="success-msg" id="successMsg">
           <div class="success-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <h3>Agendamento Confirmado!</h3>
-          <p>Você receberá uma confirmação por e-mail e WhatsApp em breve. Rafael está animado para fotografar seu momento especial!</p>
-          <button class="btn-gold" style="margin-top:1.5rem;" onclick="goTo('portfolio')">Ver Portfólio</button>
+          <h3>Confirmado!</h3>
+          <p>Rafael entrará em contato em breve para confirmar todos os detalhes do seu evento especial.</p>
+          <button class="btn-moss" style="margin-top:20px;" onclick="goTo('portfolio')">Ver Portfólio</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════ PAGE: DEPOIMENTOS ════ -->
+<!-- ════ DEPOIMENTOS ════ -->
 <div class="page" id="pageDepoimentos">
   <div style="max-width:1280px;margin:0 auto;">
-  <div class="dep-header">
-    <p class="sec-label">Histórias & Memórias</p>
-    <h2 class="sec-title">O que nossos <em>clientes</em> dizem</h2>
-  </div>
-  <div class="dep-grid" id="depGrid">
-    <div class="dep-card">
-      <span class="dep-quote">"</span><div class="dep-stars">★★★★★</div>
-      <p class="dep-text">Rafael capturou cada detalhe do nosso casamento de uma forma que nos emocionou profundamente. As fotos transmitem exatamente o que sentimos naquele dia mágico!</p>
-      <div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt=""></div><div><div class="dep-name">Ana & Pedro Mendes</div><div class="dep-event">Casamento — março 2024</div></div></div>
+    <div class="pg-label">Histórias & Memórias</div>
+    <h2 class="pg-title" style="margin-bottom:48px;">O que nossos <em>clientes</em> dizem</h2>
+    <div class="dep-grid" id="depGrid">
+      <div class="dep-card"><span class="dep-quote">"</span><div class="dep-stars">★★★★★</div><p class="dep-text">Rafael capturou cada detalhe do nosso casamento de uma forma que nos emocionou profundamente. As fotos transmitem exatamente o que sentimos naquele dia mágico!</p><div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt=""></div><div><div class="dep-name">Ana & Pedro Mendes</div><div class="dep-event">Casamento — março 2024</div></div></div></div>
+      <div class="dep-card"><span class="dep-quote">"</span><div class="dep-stars">★★★★★</div><p class="dep-text">Profissional incrível! Contratamos o Rafael para nosso evento corporativo e a qualidade das fotos superou todas as expectativas. Pontual, discreto e talentoso.</p><div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt=""></div><div><div class="dep-name">Carlos Santos</div><div class="dep-event">Evento Corporativo — jan 2024</div></div></div></div>
+      <div class="dep-card"><span class="dep-quote">"</span><div class="dep-stars">★★★★★</div><p class="dep-text">O ensaio de noivado com o Rafael foi uma experiência transformadora. Ele nos deixou completamente à vontade e as fotos ficaram lindíssimas!</p><div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt=""></div><div><div class="dep-name">Camila & Felipe Costa</div><div class="dep-event">Ensaio de Noivado — fev 2024</div></div></div></div>
     </div>
-    <div class="dep-card">
-      <span class="dep-quote">"</span><div class="dep-stars">★★★★★</div>
-      <p class="dep-text">Profissional incrível! Contratamos o Rafael para nosso evento corporativo e a qualidade das fotos superou todas as expectativas. Pontual, discreto e talentoso.</p>
-      <div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt=""></div><div><div class="dep-name">Carlos Santos</div><div class="dep-event">Evento Corporativo — jan 2024</div></div></div>
-    </div>
-    <div class="dep-card">
-      <span class="dep-quote">"</span><div class="dep-stars">★★★★★</div>
-      <p class="dep-text">O ensaio de noivado com o Rafael foi uma experiência transformadora. Ele nos deixou completamente à vontade e as fotos ficaram lindíssimas!</p>
-      <div class="dep-author"><div class="dep-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt=""></div><div><div class="dep-name">Camila & Felipe Costa</div><div class="dep-event">Ensaio de Noivado — fev 2024</div></div></div>
-    </div>
-  </div>
-
-  <!-- ESCREVER HISTÓRIA -->
-  <div class="story-section" id="storySection">
-    <p class="sec-label">Compartilhe</p>
-    <div class="story-section-title">Conte sua <em style="font-style:italic;color:var(--accent);">história</em></div>
-    <p class="story-section-sub">Foi fotografado pelo Rafael? Compartilhe sua experiência e inspire outros casais e famílias a também eternizarem seus momentos especiais.</p>
-
-    <div id="storyForm">
-      <div class="frow story-form">
-        <div class="fg"><label class="flabel">Seu Nome</label><input class="finput" id="st-nome" placeholder="Maria & João Silva"></div>
-        <div class="fg"><label class="flabel">Tipo de Evento</label>
-          <select class="fselect" id="st-tipo"><option value="">Selecione...</option><option>Casamento</option><option>Evento Corporativo</option><option>Ensaio</option><option>Outro</option></select>
+    <div class="story-section">
+      <div class="pg-label" style="color:var(--sage);">Compartilhe</div>
+      <div class="story-title">Conte sua história</div>
+      <div class="story-sub">Foi fotografado pelo Rafael? Compartilhe sua experiência e inspire outros.</div>
+      <div id="storyForm">
+        <div class="story-form-grid">
+          <div class="fg"><label class="flabel">Seu Nome</label><input class="finput" id="st-nome" placeholder="Maria & João Silva"></div>
+          <div class="fg"><label class="flabel">Tipo de Evento</label>
+            <select class="fselect" id="st-tipo"><option value="">Selecione...</option><option>Casamento</option><option>Evento Corporativo</option><option>Ensaio</option><option>Outro</option></select>
+          </div>
+          <div class="fg full"><label class="flabel">Avaliação</label>
+            <div class="rating-row" id="ratingStars">
+              <span class="rating-star active" onclick="setRating(1)">★</span>
+              <span class="rating-star active" onclick="setRating(2)">★</span>
+              <span class="rating-star active" onclick="setRating(3)">★</span>
+              <span class="rating-star active" onclick="setRating(4)">★</span>
+              <span class="rating-star active" onclick="setRating(5)">★</span>
+            </div>
+          </div>
+          <div class="fg full"><label class="flabel">Sua história</label>
+            <textarea class="story-textarea" id="st-texto" placeholder="Conte como foi a experiência..."></textarea>
+          </div>
         </div>
+        <button class="btn-moss" onclick="publicarHistoria()" style="margin-top:8px;">Publicar minha história</button>
       </div>
-      <div class="fg story-full">
-        <label class="flabel">Sua avaliação</label>
-        <div class="rating-select" id="ratingStars">
-          <span class="rating-star active" onclick="setRating(1)">★</span>
-          <span class="rating-star active" onclick="setRating(2)">★</span>
-          <span class="rating-star active" onclick="setRating(3)">★</span>
-          <span class="rating-star active" onclick="setRating(4)">★</span>
-          <span class="rating-star active" onclick="setRating(5)">★</span>
-        </div>
-      </div>
-      <div class="fg story-full">
-        <label class="flabel">Sua história</label>
-        <textarea class="story-textarea" id="st-texto" placeholder="Conte como foi a experiência, o que mais marcou, algum momento especial durante as fotos..."></textarea>
-      </div>
-      <button class="btn-gold" onclick="publicarHistoria()">Publicar minha história</button>
+      <div class="story-published" id="storyPublished"><p>✨ Sua história foi publicada! Obrigado por compartilhar.</p></div>
     </div>
-
-    <div class="story-published" id="storyPublished">
-      <p>✨ Sua história foi publicada! Obrigado por compartilhar esse momento conosco.</p>
-    </div>
-  </div>
   </div>
 </div>
 
-<!-- ════ PAGE: GALERIA ════ -->
+<!-- ════ GALERIA ════ -->
 <div class="page" id="pageGaleria">
   <div class="gal-lock"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-  <p class="sec-label">Área Exclusiva</p>
-  <h2 class="sec-title">Galeria do <em>Cliente</em></h2>
-  <p class="gal-desc">Recebeu sua senha por e-mail? Acesse aqui sua galeria privada para visualizar, baixar e compartilhar suas fotos em alta resolução.</p>
+  <div class="pg-label">Área Exclusiva</div>
+  <h2 class="pg-title" style="margin-bottom:16px;">Galeria do <em>Cliente</em></h2>
+  <p class="gal-desc">Recebeu sua senha por e-mail? Acesse sua galeria privada para visualizar, baixar e compartilhar suas fotos.</p>
   <div class="gal-form">
-    <input type="password" class="gal-input" id="galPass" placeholder="Digite sua senha..." onkeypress="if(event.key==='Enter')acessarGal()">
+    <input type="password" class="gal-input" id="galPass" placeholder="Sua senha..." onkeypress="if(event.key==='Enter')acessarGal()">
     <button class="gal-btn" onclick="acessarGal()">Acessar</button>
   </div>
-  <p class="gal-error" id="galErr">Senha incorreta. Verifique seu e-mail.</p>
-
-  <div class="gal-share-row" id="galShareRow" style="display:none;">
-    <span style="font-size:.72rem;color:rgba(253,250,247,.4);letter-spacing:.1em;text-transform:uppercase;align-self:center;">Compartilhar galeria:</span>
+  <p class="gal-error" id="galErr">Senha incorreta.</p>
+  <div class="gal-share-row" id="galShareRow">
+    <span style="font-size:.6rem;color:var(--fog);letter-spacing:.15em;text-transform:uppercase;align-self:center;">Compartilhar:</span>
     <button class="gal-share-btn gsb-ig" onclick="shareGallery('instagram')"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Instagram</button>
     <button class="gal-share-btn gsb-fb" onclick="shareGallery('facebook')"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</button>
     <button class="gal-share-btn gsb-wa" onclick="shareGallery('whatsapp')"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</button>
   </div>
-
   <div class="gal-grid" id="galGrid">
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1529636444744-adffc9135a5e?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[0],'galeria-foto-1.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[1],'galeria-foto-2.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[2],'galeria-foto-3.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[3],'galeria-foto-4.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1529636444744-adffc9135a5e?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[4],'galeria-foto-5.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[5],'galeria-foto-6.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[6],'galeria-foto-7.jpg')">↓</button></div>
+    <div class="gal-thumb" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt=""><div class="gal-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><button class="gal-dl-single" onclick="event.stopPropagation();downloadPhoto(galeriaFotos[7],'galeria-foto-8.jpg')">↓</button></div>
   </div>
-  <div class="gal-download" id="galDownload" style="display:none;">
-    <span class="gal-dl-info">8 fotos · Alta resolução · Galeria Ana & Pedro — Casamento Março 2024</span>
-    <button class="gal-dl-btn">↓ Baixar Todas as Fotos</button>
-  </div>
-</div>
-
-<!-- SOCIAL STRIP (shared) -->
-<div id="sharedSocialStrip" style="display:none;">
-  <div class="social-strip">
-    <span class="social-strip-lbl">Siga nas redes</span>
-    <div class="social-links">
-      <a href="#" onclick="openSocial('instagram')">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        @rafaellimafoto
-      </a>
-      <a href="#" onclick="openSocial('facebook')">
-        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        Rafael Lima Fotografia
-      </a>
-      <a href="#" onclick="openSocial('whatsapp')">
-        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        WhatsApp
-      </a>
-    </div>
-  </div>
-  <footer>
-    <div>
-      <span class="footer-logo">Rafael Lima</span>
-      <p class="footer-desc">Fotógrafo profissional especializado em casamentos, eventos sociais e ensaios fotográficos. Cada imagem conta uma história única.</p>
-    </div>
-    <div class="footer-col"><h4>Navegação</h4><ul>
-      <li><a onclick="goTo('sobre')">Sobre mim</a></li>
-      <li><a onclick="goTo('portfolio')">Portfólio</a></li>
-      <li><a onclick="goTo('pacotes')">Pacotes</a></li>
-      <li><a onclick="goTo('depoimentos')">Depoimentos</a></li>
-      <li><a onclick="goTo('galeria')">Área do Cliente</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Serviços</h4><ul>
-      <li><a onclick="goTo('pacotes')">Casamentos</a></li>
-      <li><a onclick="goTo('pacotes')">Eventos Corporativos</a></li>
-      <li><a onclick="goTo('pacotes')">Ensaios Fotográficos</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Contato</h4><ul>
-      <li><a>(11) 99999-0000</a></li>
-      <li><a>contato@rafaellimafoto.com.br</a></li>
-      <li><a>São Paulo, SP</a></li>
-    </ul></div>
-  </footer>
-  <div class="footer-bottom">
-    <span>© 2024 Rafael Lima Fotografia — Todos os direitos reservados</span>
-    <span>Feito com ♥ para momentos que duram para sempre</span>
+  <div class="gal-download" id="galDownload">
+    <span class="gal-dl-info">8 fotos · Alta resolução · Galeria Ana & Pedro</span>
+    <button class="gal-dl-btn" onclick="downloadAllPhotos(galeriaFotos,'Ana-e-Pedro')">↓ Baixar Todas as Fotos</button>
   </div>
 </div>
 
@@ -549,18 +530,29 @@
 <div class="modal" id="modal" onclick="closeModal()">
   <div class="modal-inner" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">✕ Fechar</button>
-    <img id="modalImg" src="" alt="">
+    <div id="galModalHeader">
+      <div><div id="galModalCat"></div><div id="galModalName"></div></div>
+      <div id="galModalCount"></div>
+    </div>
+    <div style="position:relative;margin-bottom:10px;">
+      <img id="modalImg" src="" alt="">
+      <button id="galPrev" onclick="galNav(-1)">‹</button>
+      <button id="galNext" onclick="galNav(1)">›</button>
+    </div>
+    <div id="galThumbs"></div>
     <div class="modal-share">
-      <button class="modal-share-btn msb-ig" onclick="sharePhoto('instagram',null,true)"><svg viewBox="0 0 24 24" fill="white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Instagram</button>
-      <button class="modal-share-btn msb-fb" onclick="sharePhoto('facebook',null,true)"><svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</button>
-      <button class="modal-share-btn msb-wa" onclick="sharePhoto('whatsapp',null,true)"><svg viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</button>
-      <button class="modal-share-btn msb-tw" onclick="sharePhoto('twitter',null,true)"><svg viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>Twitter</button>
+      <button class="modal-share-btn msb-ig" onclick="sharePhoto('instagram',null,true)"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Instagram</button>
+      <button class="modal-share-btn msb-fb" onclick="sharePhoto('facebook',null,true)"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</button>
+      <button class="modal-share-btn msb-wa" onclick="sharePhoto('whatsapp',null,true)"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</button>
+      <button class="modal-share-btn msb-tw" onclick="sharePhoto('twitter',null,true)"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>Twitter</button>
+      <button class="modal-share-btn" style="background:#1A1A1A;border:1px solid #333;" onclick="downloadCurrentPhoto()"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="12" height="12"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar foto</button>
+      <button id="modalDlAll" class="modal-share-btn" style="background:var(--moss);" onclick="downloadAllFromModal()"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="12" height="12"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar todas</button>
     </div>
   </div>
 </div>
 
 <!-- TOAST -->
-<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--dark);color:var(--warm);padding:.8rem 2rem;font-size:.82rem;font-family:'Jost',sans-serif;letter-spacing:.08em;border-left:3px solid var(--gold);opacity:0;transition:opacity .4s;pointer-events:none;z-index:9000;white-space:nowrap;"></div>
+<div id="toast"></div>
 
 <script src="script.js"></script>
 </body>
